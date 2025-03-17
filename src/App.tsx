@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Loader } from './components/Loader';
-import { NavLink, Routes, Route, Navigate, useParams } from 'react-router-dom';
+import {
+  NavLink,
+  Routes,
+  Route,
+  Navigate,
+  useParams,
+  Link,
+} from 'react-router-dom';
 import classNames from 'classnames';
 import { getPeople } from './api';
 import { Person } from './types';
@@ -28,12 +35,12 @@ const PersonLink = ({
     const linkSlug = slug || people.find(person => person.name === name)?.slug;
 
     return (
-      <a
+      <Link
         className={isFemale ? 'has-text-danger' : ''}
-        href={`#/people/${linkSlug}`}
+        to={`/people/${linkSlug}`}
       >
         {name}
-      </a>
+      </Link>
     );
   }
 
